@@ -70,6 +70,46 @@ public class Game {
     }
 
 
+
+    public void startDifficultGame() {
+        System.out.println("-----Start Game!-----\n" +
+                "   ROCK, PAPER, SCISSORS, SPOCK, LIZARD!");
+        Active userMove2 = user.getUser2();
+        Active computerMove2 = computer.getComputer2();
+        System.out.println("\n Your move: " + userMove2 + ".");
+        System.out.println(" Computer move: " + computerMove2 + ".\n");
+
+        int moves = userMove2.searchWinner2(computerMove2);
+        switch (moves) {
+            case 0:
+                System.out.println("Draw!");
+                break;
+            case 1:
+                System.out.println(userMove2 + " beats " + computerMove2 + " You winner! ");
+                userScore++;
+                break;
+            case -1:
+                System.out.println(computerMove2 + " beats " + userMove2 + ".You lost.");
+                computerScore++;
+                break;
+        }
+        numberOfGames++;
+
+
+        System.out.println("Would you like to play again? Enter 1-yes, 2-not");
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        int count = 0;
+        if (number == 1) {
+            startDifficultGame();
+        } else if (number == 2) {
+            System.out.println("You finished the game...");
+            print();
+        } else { count++;
+        }
+    }
+
+
 }
 
 
