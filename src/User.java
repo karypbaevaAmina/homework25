@@ -27,33 +27,23 @@ public class User {
     }
 
     public static Operation getUser2() {
-        System.out.println(" Enter one of these actions ROCK, SCISSORS, PAPER, SPOCK, LIZARD");
+        System.out.println(" Enter one of these actions 1-ROCK, 2-SCISSORS, 3-PAPER, 4-SPOCK, 5-LIZARD");
         Scanner inputScanner = new Scanner(System.in);
-        String userChoose =inputScanner.nextLine();
-        userChoose = userChoose.toUpperCase();
-        char firstLetter = userChoose.charAt(0);
-        if (firstLetter == 'R' || firstLetter == 'P' || firstLetter == 'S' || firstLetter == 'S' || firstLetter == 'L') {
-            switch (firstLetter) {
-                case 'R':
+        int userChoose = inputScanner.nextInt();
+            switch (userChoose) {
+                case '1':
                     return  Operation.ROCK;
-                case 'P':
+                case '2':
+                    return Operation.SCISSORS;
+                case '3':
                     return Operation.PAPER;
-                case 'S':
-                    return Operation.SCISSORS;
-                case 'S':
-                    return Operation.SCISSORS;
-                case 'L':
-                    return Operation.SCISSORS;
-
-
-
-
-            }
+                case '4':
+                    return Operation.SPOCK;
+                case '5':
+                    return Operation.LIZARD;
         }
-        return getUser();
+
+        return getUser2();
     }
-
-
-
 
 }
